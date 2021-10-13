@@ -1,0 +1,10 @@
+# factorials without using reccursion.
+x = 1
+def factN(N):
+  global x
+  for i in range(N):
+    x = x*(i+1)
+  print('factorial of', N, 'is', x)
+  
+
+factN(10)
