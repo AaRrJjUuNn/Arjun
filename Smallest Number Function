@@ -1,0 +1,14 @@
+def minimum(*argv):
+  sum = 0
+  ls = []
+  for arg in argv:
+    sum = sum + arg
+    ls.append(arg)
+    print(ls)
+  for i in ls:
+    if i < sum:
+      sum = i
+  print(sum)
+     
+      
+minimum(332, 400, 100, 43, 225, 17)
