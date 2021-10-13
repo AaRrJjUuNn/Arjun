@@ -4,7 +4,6 @@ def minimum(*argv):
   for arg in argv:
     sum = sum + arg
     ls.append(arg)
-    print(ls)
   for i in ls:
     if i < sum:
       sum = i
