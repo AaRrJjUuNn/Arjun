@@ -1,0 +1,11 @@
+#using recusrion to find factorials of n.
+v = 1
+def factN(N):
+  global v
+  v = v*N
+  if 1 == N:
+    print(v)
+  else:
+    factN(N-1)
+
+factN(10)
