@@ -1,0 +1,121 @@
+# I am quite proud of this project!!! (done in grade 10 as an assesment)
+# Temperature Logger for 3 times a day.
+
+import datetime
+
+MORNING_TEMPS = []
+MID_DAY_TEMPS = []
+MID_NIGHT_TEMPS = []
+Count = 0
+
+x = datetime.datetime.now()
+
+
+def morning_temps():
+    while True:
+        temperature = eval(input('enter temperature(morning): '.capitalize()))
+        if 37.0 > temperature > 36.0:
+            print('temperature entered successfully!'.capitalize())
+
+            MORNING_TEMPS.append(temperature)
+            break
+        else:
+            print('temperature must be between 37 and 36'.capitalize())
+            continue
+
+
+def mid_day_temps():
+    while True:
+        temperature = eval(input('enter temperature(mid day): '.capitalize()))
+        if 37.0 > temperature > 36.0:
+            print('temperature entered successfully!'.capitalize())
+            MID_DAY_TEMPS.append(temperature)
+            break
+        else:
+            print('temperature must be between 37.0 and 36.0'.capitalize())
+            continue
+
+
+def mid_night_temps():
+    while True:
+        temperature = eval(input('enter temperature(midnight): '.capitalize()))
+        if 37.0 > temperature > 36.0:
+            print('temperature entered successfully!'.capitalize())
+            MID_NIGHT_TEMPS.append(temperature)
+            break
+        else:
+            print('temperature must be between 37.0 and 36.0'.capitalize())
+            continue
+
+
+def average_calculator():
+    return sum(MT) / len(MT), sum(MDT) / len(MDT), sum(MNT) / len(MNT)
+
+
+def day_with_highest_temps():
+    mtn = max(MT)
+    index = MT.index(mtn)
+    day = index + 1
+    return day
+
+
+def mid_day_with_highest_temps():
+    mtn = max(MDT)
+    index = MDT.index(mtn)
+    day = index + 1
+    return day
+
+
+def night_day_with_highest_temps():
+    mtn = max(MNT)
+    index = MNT.index(mtn)
+    day = index + 1
+    return day
+
+
+def day_with_lowest_temp():
+    mtn = min(MT)
+    index = MT.index(mtn)
+    day = index + 1
+    return day
+
+
+def mid_day_with_lowest_temp():
+    mtn = min(MT)
+    index = MT.index(mtn)
+    day = index + 1
+    return day
+
+
+def midnight_with_lowest_temp():
+    mtn = min(MT)
+    index = MT.index(mtn)
+    day = index + 1
+    return day
+
+
+while Count < 2:
+    morning_temps()
+    print('recorded @'.capitalize(), x)
+    mid_day_temps()
+    print('recorded @'.capitalize(), x)
+    mid_night_temps()
+    print('recorded @'.capitalize(), x)
+    Count += 1
+    print('\n')
+    if Count == 2:
+        print(' ', MORNING_TEMPS, '\n', MID_DAY_TEMPS, '\n', MID_NIGHT_TEMPS, '\n')
+        MT = MORNING_TEMPS.copy()
+        MDT = MID_DAY_TEMPS.copy()
+        MNT = MID_NIGHT_TEMPS.copy()
+        print('the average temperatures for morning, mid day and midnight are: ', average_calculator())
+        final_list = MORNING_TEMPS + MID_DAY_TEMPS + MID_NIGHT_TEMPS
+        print('the highest temperature recorded is: ', max(final_list))
+        print('day with highest morning temperature: ', day_with_highest_temps())
+        print('day with highest mid day temperature: ', mid_day_with_highest_temps())
+        print('day with highest midnight temperature: ', night_day_with_highest_temps())
+        print('day with the lowest morning temperature: ', day_with_lowest_temp())
+        print('day with the lowest mid day temperature: ', mid_day_with_lowest_temp())
+        print('day with the lowest midnight temps: ', midnight_with_lowest_temp())
+    else:
+        continue
