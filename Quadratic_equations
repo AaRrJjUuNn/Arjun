@@ -1,0 +1,14 @@
+import math
+
+a = int(input("value for a: "))
+b = int(input("value for b: "))
+c = int(input("value for c: "))
+
+step_2 = 4 * a * c
+step_1 = (- b - math.sqrt(b ** 2 - step_2))
+print("x is equal to", step_1 / (2 * a), "\n", "OR,")
+
+step_2 = 4 * a * c
+step_1 = (- b + math.sqrt(b ** 2 - step_2))
+
+print("x is equal to", step_1 / (2 * a))
