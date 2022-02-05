@@ -1,0 +1,13 @@
+# magnitude function will determine if number is negative or not.
+
+def magnitude(ls=None):
+    if ls is None:
+        ls = []
+    for i in ls:
+        if i / -1 > 0:
+            print(i, ' is a negative number')
+        else:
+            print(i, ' is a positive number')
+
+
+magnitude([1, 2, 3, 4, -1, -2, -3, -4])
