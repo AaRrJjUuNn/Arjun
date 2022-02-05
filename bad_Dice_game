@@ -1,0 +1,13 @@
+
+import random
+score = 0
+
+tries = int(input('tries: '))
+for i in range(tries):
+    side = random.randint(0, 6)
+    guess = int(input('what do you think the dice will land on: '))
+    if guess == side:
+        score += 1
+    else:
+        score -= 1
+    print('the dice landed on side', side, '\nyour guess was', guess, '\nyou have', score, 'points')
