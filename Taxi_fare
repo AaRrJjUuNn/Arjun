@@ -1,0 +1,48 @@
+def main():
+    def exchange(dollars):
+        cost_rands = dollars * 15.80  # changes rands to dollars
+        return cost_rands
+
+    def cost(distance, people_travelling):
+        cost_dist = distance * 3.50
+        cost_people = people_travelling * 2.87
+        return cost_dist + cost_people
+
+    def cost_reduction(no_red):
+        # for d in range(color_of_taxi):
+        v = no_red - (20 * color_of_taxi)
+        return v
+    passengers = []
+    run = True
+    n_passengers = 0
+    dist = float(input('enter distance for journey: '))
+    color_of_taxi = int(input('how many out of the 4 given colors is the taxi \nblack, green, yellow, silver \n: '))
+    passenger_add = input('There are no passengers on board, start to add them? [Y/n]: ').lower()
+
+    while run:
+        count = 0
+        add_p = input('add passenger [Y/n]: ').lower()
+        if add_p == 'y':
+            count += 1
+            n_passengers += 1
+            if passenger_add == 'y':
+                for i in range(count):
+                    print('passenger added')
+                    passengers.append(1)
+                    print(passengers)
+
+            continue
+
+        else:
+            run = False
+
+    # price_for_passengers = n_passengers * 2.87
+    cost_before_exchange = cost(dist, n_passengers)
+    cost_after_exchange = round(exchange(cost_before_exchange), 2)
+    final_price = round(cost_reduction(cost_after_exchange), 2)
+    print('the cost before price reduction based on color is R' + str(cost_after_exchange))
+    print('the cost after price reduction based on color is R' + str(final_price))
+
+
+if __name__ == '__main__':
+    main()
