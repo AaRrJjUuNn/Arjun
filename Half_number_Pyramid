@@ -1,0 +1,4 @@
+for i in range(1, 10):
+    x = str(i)
+    y = x + ' '
+    print(y*i)
