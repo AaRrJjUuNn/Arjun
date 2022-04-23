@@ -1,0 +1,27 @@
+# array / list sorting
+# unique way of making random numbers?
+
+# sorting from largest to smallest
+
+ls = [222, 44, 1, 66, 33, 99, 999, 55]
+
+ordls = []
+
+
+def b(ls):
+    if len(ls) > 0:
+        c_b_e = 0
+        global ordls
+        for ele in ls:
+            if ele > c_b_e:
+                c_b_e = ele
+        ordls.append(c_b_e)
+        ls.remove(c_b_e)
+        print(ls)
+        print(ordls)
+        b(ls)
+    else:
+        return 1
+
+
+b(ls)
