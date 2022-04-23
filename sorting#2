@@ -1,0 +1,30 @@
+# sorting from smallest to largest
+import random
+
+ls = []
+order_list = []
+for i in range(1, 100):
+    ls.append(random.randint(1, 1000))
+
+print(ls)
+
+
+# order list
+
+def order(ls):
+    c_b_e = 0
+    if len(ls) > 0:
+        global order_list
+        for ele in ls:
+            if ele > c_b_e:
+                c_b_e = ele
+
+        order_list.append(c_b_e)
+        ls.remove(c_b_e)
+        order(ls)
+    else:
+        print(order_list)
+        return 0
+
+
+order(ls)
