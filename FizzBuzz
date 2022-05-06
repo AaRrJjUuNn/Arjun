@@ -1,0 +1,17 @@
+# if number is divisible by 5 print Fizzle
+# if number is divisible by 3 print Buzz
+
+import random
+
+x = random.randint(0, 100)
+
+
+def FizzBuzz(y):
+    print(y)
+    if y % 5 == 0:
+        print('Fizz', end='')
+    if y % 3 == 0:
+        print('Buzz')
+
+
+FizzBuzz(x)
