@@ -1,0 +1,83 @@
+# file should be run from terminal
+# pyhton3 filename in directory of file
+
+
+import curses
+import random
+
+p = curses.initscr()
+y, x = p.getmaxyx()
+curses.endwin()
+print(y, x)
+cp = 0
+character = ['!', '@', '#', '$', '%', '&']
+char = random.choice(character)  # having character choice outside prevents new character from being chosen each move.
+x_pos = random.randint(0, x - 1)
+y_pos = random.randint(0, y - 1)
+test_for_eat = 0
+
+
+class Obstacle:
+    global x, y, char, x_pos, y_pos
+
+    def __init__(self, stdscr):
+        # character = ['!', '@', '#', '$', '%', '&']
+        self.x_position = x_pos  # random.randint(0, x - 1)
+        self.y_position = y_pos  # random.randint(0, y - 1)
+        self.character = char
+        self.is_eaten = False
+        self.coord = (self.y_position, self.x_position)
+        stdscr.addstr(self.y_position, self.x_position, self.character)
+
+
+def eat(Obstacle):
+    global test_for_eat
+
+    if cp == Obstacle.coord:
+        print('successful eat')
+        Obstacle.is_eaten = True
+        test_for_eat = 'successful eat'
+
+
+def snake_moves(stdscr):
+    global x, y, cp
+    x1 = x // 2
+    y1 = y // 2
+    while True:
+        current_position = (y, x)
+        cp = current_position  # fix current position to reflect position of 0
+        moves = stdscr.getkey()
+        if moves == 'w':
+            y1 -= 1
+        elif moves == 'd':
+            x1 += 1
+        elif moves == 's':
+            y1 += 1
+        elif moves == 'a':
+            x1 -= 1
+        else:
+            break
+
+        stdscr.clear()
+        o = Obstacle(stdscr)
+        eat(o)
+        stdscr.addstr(y1, x1, '0')
+        stdscr.refresh()
+        o = Obstacle(stdscr)
+        eat(o)
+    stdscr.getch()
+
+
+def main(stdscr):
+    curses.curs_set(0)
+    stdscr.clear()
+    stdscr.addstr(0, x // 2, '...ZERO...')
+
+    o = Obstacle(stdscr)
+
+    snake_moves(stdscr)
+
+
+curses.wrapper(main)
+print(test_for_eat)
+print(cp)
