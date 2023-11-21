@@ -1,0 +1,38 @@
+import random
+import time
+
+# various ways of finding smallest number, i tried to improve time taken.
+
+
+liz = []
+for x in range(10000000):
+    number = random.randint(1, 100000000)
+    liz.append(number)
+
+total = 0
+start = time.time()
+for i in liz:
+    total = total + i
+
+for i in liz:
+    if i < total:
+        total = i
+print(total)
+end = time.time()
+print(end - start)
+
+start2 = time.time()
+print(min(liz))
+end2 = time.time()
+print(end2 - start2)
+
+star3 = time.time()
+for b in liz:
+    if b < liz[0]:
+        liz[0] = b
+
+print(liz[0])
+
+end3 = time.time()
+
+print(end3 - star3)
